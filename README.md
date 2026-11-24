@@ -45,19 +45,23 @@ npm -v
 ### Caso esteja clonando este repositório base
 
 ```bash
-# 1. Instale as dependências PHP (já inclui o Pest)
+# 1. Clone o repositório e acesse a pasta do projeto
+git clone https://github.com/joseeverton/pratica-testes-laravel-pest.git
+cd pratica-testes-laravel-pest
+
+# 2. Instale as dependências PHP (já inclui o Pest)
 composer install
 
-# 2. Copie o arquivo de ambiente
+# 3. Copie o arquivo de ambiente
 cp .env.example .env
 
-# 3. Gere a chave da aplicação
+# 4. Gere a chave da aplicação
 php artisan key:generate
 
-# 4. Crie o arquivo do banco SQLite (se ainda não existir)
+# 5. Crie o arquivo do banco SQLite (se ainda não existir)
 php -r "file_exists('database/database.sqlite') || touch('database/database.sqlite');"
 
-# 5. Execute as migrations iniciais
+# 6. Execute as migrations iniciais
 php artisan migrate
 ```
 
@@ -1186,11 +1190,11 @@ it('deve exibir mensagem de erro no navegador ao consultar CEP inexistente', fun
 # Modo headless (sem abrir janela visual — mais rápido)
 ./vendor/bin/pest tests/Browser/CepBrowserTest.php
 
-# Modo visual (abre o navegador para a turma assistir a automação acontecendo!)
+# Modo visual (abre o navegador e executa a automação acontecendo em tempo real!)
 ./vendor/bin/pest tests/Browser/CepBrowserTest.php --headed
 ```
 
-> **Dica para a aula:** Altere a variável `$quantidadeRequisicoes` (por exemplo, para `10` ou `20`) e execute com `--headed` para demonstrar ao vivo o navegador preenchendo o campo e clicando em **Consultar** automaticamente!
+> **Dica:** Altere a variável `$quantidadeRequisicoes` (por exemplo, para `10` ou `20`) e execute com `--headed` para demonstrar ao vivo o navegador preenchendo o campo e clicando em **Consultar** automaticamente!
 
 ---
 
